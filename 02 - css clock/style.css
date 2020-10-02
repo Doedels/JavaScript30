@@ -1,0 +1,46 @@
+html {
+  font-size: 10px;
+  background: darkblue;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.clock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.clock-face {
+  position: relative;
+  border: 10px solid #fff;
+  border-radius: 50%;
+  height: 300px;
+  width: 300px;
+}
+
+.hand {
+  background: #000;
+  width: 45%;
+  height: 6px;
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform-origin: right;
+}
+
+.sec-hand {
+  background: red;
+  height: 3px;
+}
+
+.hour-hand {
+  width: 35%;
+  left: 15%;
+}
