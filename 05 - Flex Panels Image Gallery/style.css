@@ -1,0 +1,84 @@
+html {
+  box-sizing: border-box;
+  background: #ffc600;
+  font: 200 20px "Comic Sans MS", cursive, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.panels {
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+}
+
+.panel {
+  text-align: center;
+  align-items: center;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.7s;
+}
+
+.panel1 {
+  background-image: url(https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/ice-wall-helen-carson.jpg);
+}
+.panel2 {
+  background-image: url(https://et-website.s3.amazonaws.com/uploads/2019/05/Beautiful-aerial-view-of-Iguazu-Falls-One-of-the-Seven-Natural-Wonders-of-the-World-Foz-do-Igua%C3%A7u-Brazil.jpg);
+}
+.panel3 {
+  background-image: url(https://www.asiadirect.nl/wp-content/uploads/2018/07/Indonesie-Java-Bromo-01.jpg);
+}
+.panel4 {
+  background-image: url(https://www.nationalgeographic.com/content/dam/travel/Guide-Pages/australia-oceania/australia_australia_travel_guides.ngsversion.1590019533242.adapt.1900.1.jpg);
+}
+.panel5 {
+  background-image: url(https://www.marrakechexcursies.nl/images/circuits/760x470/img9260-16.jpg);
+}
+
+/* .panel > * : all children of elements with class="panel" */
+.panel > * {
+  margin: 0;
+  width: 100%;
+  transition: transform 0.5s;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel > *:first-child {
+  transform: translateY(-100%);
+}
+.panel.open-active > *:first-child {
+  transform: translateY(0);
+}
+
+.panel > *:last-child {
+  transform: translateY(100%);
+}
+.panel.open-active > *:last-child {
+  transform: translateY(0);
+}
+
+.panel p {
+  text-transform: uppercase;
+  font-size: 1em;
+}
+
+.panel p:nth-child(2) {
+  font-size: 2em;
+}
+
+.panel.open {
+  font-size: 40px;
+  flex: 5;
+}
