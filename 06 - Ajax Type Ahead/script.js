@@ -8,10 +8,19 @@ const suggestions = document.querySelector(".suggestions")
 const endpoint = "https://opendata.cbs.nl/ODataApi/odata/83958NED/Woonplaatsen"
 const steden = [];
 
+const getUnique = (array, compare) => {
+    const unique = array.map(e => e[compare])
+        // store the keys of the unique objects
+        .map((e, i, final) => final.indexOf(e) === i && i)
+        // eliminate the dead keys & store unique objects
+        .filter(e => array[e]).map(e => array[e]);
+    return unique;
+}
+
 fetch(endpoint)
     .then(response => response.json())
     .then(data => {
-        const st = data.value.map(obj => obj.Title)
+        const st = getUnique(data.value, 'Title').map(obj => obj.Title)
         steden.push(...st)
     })
 
@@ -29,6 +38,9 @@ const displayMatches = (e) => {
         return `<li class="name"><span>${stadNaam}</span></li>`
     }).join("");
     suggestions.innerHTML = html;
+    document.querySelectorAll(".name").forEach(elem => elem.addEventListener("click", () => {
+        searchInput.value = elem.textContent
+    }))
 }
 
 searchInput.addEventListener("input", displayMatches)
