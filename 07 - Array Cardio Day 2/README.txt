@@ -1,0 +1,1 @@
+I skipped this Array methods excercise. I've done 1000 of them already.
